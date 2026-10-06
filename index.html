@@ -1,48 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GL Publisher</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GL Publisher — scheduled video posting for small brands</title>
+<meta name="description" content="GL Publisher posts a brand's own pre-made videos to TikTok, YouTube and Facebook on a fixed daily schedule, and records the result of every post.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <h1>GL Publisher</h1>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="index.html">GL Publisher <span>— scheduled video posting</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="#how">How it works</a>
+      <a href="#permissions">Permissions</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
 
-  <p>
-    GL Publisher is a content publishing integration designed to help
-    users manage and publish video content to authorized social media
-    platforms.
-  </p>
+<main>
 
-  <h2>Services</h2>
+<div class="hero">
+  <div class="wrap">
+    <h1>A video queue that posts itself, on time, every day.</h1>
+    <p class="lede">GL Publisher takes videos a brand has already produced, holds them in a dated queue, and publishes two of them each morning to TikTok, YouTube and Facebook. It then writes back what happened to each one, so nothing is posted twice and nothing is quietly skipped.</p>
 
-  <p>
-    GL Publisher allows authorized users to connect supported social
-    media accounts and publish video content through official platform APIs.
-  </p>
+    <div class="strip">
+      <div class="strip-head">
+        <h2>Queue</h2>
+        <p>Publishing daily at 09:00 (UTC+7)</p>
+      </div>
+      <div class="row">
+        <time datetime="2026-10-04T09:00">04 Oct · 09:00</time>
+        <div class="title">Braised beef brisket — 40s cut</div>
+        <div class="chips"><span class="chip posted">TikTok posted</span><span class="chip posted">YouTube posted</span><span class="chip posted">Facebook posted</span></div>
+      </div>
+      <div class="row">
+        <time datetime="2026-10-05T09:00">05 Oct · 09:00</time>
+        <div class="title">Shrimp paste, three ways</div>
+        <div class="chips"><span class="chip posted">TikTok posted</span><span class="chip posted">YouTube posted</span><span class="chip posted">Facebook posted</span></div>
+      </div>
+      <div class="row">
+        <time datetime="2026-10-06T09:00">06 Oct · 09:00</time>
+        <div class="title">Cold-smoked mackerel, prep to plate</div>
+        <div class="chips"><span class="chip queued">TikTok queued</span><span class="chip queued">YouTube queued</span><span class="chip queued">Facebook queued</span></div>
+      </div>
+      <div class="row">
+        <time datetime="2026-10-07T09:00">07 Oct · 09:00</time>
+        <div class="title">Rice paper rolls for a lunch service</div>
+        <div class="chips"><span class="chip idle">TikTok waiting</span><span class="chip idle">YouTube waiting</span><span class="chip idle">Facebook waiting</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <h2>Privacy and Terms</h2>
+<section id="who">
+  <div class="wrap">
+    <h2>Who it is for</h2>
+    <p>Small food and beverage producers who film in batches. A kitchen shoots thirty clips in one afternoon, then has no one free to post them for the next six weeks. The videos sit on a drive and age out.</p>
+    <p>GL Publisher is the piece in between: a spreadsheet of what to post and when, and a scheduled job that does the posting. There is no feed to check and no app to open in the morning.</p>
+  </div>
+</section>
 
-  <p>
-    Please review our policies before using GL Publisher:
-  </p>
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>
+        <h3>Fill the queue</h3>
+        <p>Each row of a spreadsheet holds one video: the file, the publish date, and the caption written for each platform. Captions differ because the platforms differ.</p>
+      </li>
+      <li>
+        <h3>Connect the accounts</h3>
+        <p>You authorise GL Publisher once per platform. Authorisation is granted by you, in each platform's own consent screen, and can be withdrawn there at any time.</p>
+      </li>
+      <li>
+        <h3>Publishing runs on schedule</h3>
+        <p>At the set hour, the next two unpublished rows are read. Each video is fetched from storage and uploaded to each connected platform with its caption.</p>
+      </li>
+      <li>
+        <h3>Results are written back</h3>
+        <p>Every row records the outcome per platform and the link to the published post. A platform that fails is marked as failed with its error, and the other two still publish.</p>
+      </li>
+    </ol>
+  </div>
+</section>
 
-  <ul>
-    <li>
-      <a href="./privacy.html">Privacy Policy</a>
-    </li>
-    <li>
-      <a href="./terms.html">Terms of Service</a>
-    </li>
-  </ul>
+<section id="permissions">
+  <div class="wrap">
+    <h2>Permissions and why each one is needed</h2>
+    <p>GL Publisher requests the narrowest permission that allows a video to be posted. It asks for nothing it does not use.</p>
 
-  <h2>Contact</h2>
+    <table>
+      <caption>Permissions requested per platform</caption>
+      <thead>
+        <tr><th scope="col">Platform</th><th scope="col">Permission</th><th scope="col">What it is used for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>TikTok</td><td>video.upload</td><td>Transfer the video file to the account so it can be posted.</td></tr>
+        <tr><td>TikTok</td><td>video.publish</td><td>Publish the transferred video with the caption from the queue.</td></tr>
+        <tr><td>TikTok</td><td>user.info.basic</td><td>Confirm which account was authorised, so videos go to the right profile.</td></tr>
+        <tr><td>YouTube</td><td>youtube.upload</td><td>Upload the video file to the authorised channel.</td></tr>
+        <tr><td>Facebook</td><td>pages_manage_posts</td><td>Create the video post on the authorised Page.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-  <p>
-    For questions about GL Publisher, please contact the application owner.
-  </p>
+<section id="limits">
+  <div class="wrap">
+    <h2>What GL Publisher does not do</h2>
+    <ul class="plain">
+      <li>It does not read, send or store private messages.</li>
+      <li>It does not follow, like, comment on, or view other accounts' content.</li>
+      <li>It does not generate, buy or simulate views, followers or engagement.</li>
+      <li>It does not edit, re-encode or alter video. Files are posted exactly as supplied.</li>
+      <li>It does not post anything that is not already in the queue the account owner wrote.</li>
+      <li>It does not sell, share or transfer account data to anyone.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="status">
+  <div class="wrap">
+    <h2>Current status</h2>
+    <p>GL Publisher is operated privately for the food brands run by its developer in Ho Chi Minh City. Posting to YouTube and Facebook Pages is in daily use. TikTok posting is in development against the Content Posting API and is limited to the developer's own account while under review.</p>
+    <p>If you have a question about the tool or about data held for an account you control, write to us through <a href="support.html">support</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>GL Publisher</span>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="terms.html">Terms of service</a>
+    <a href="support.html">Support</a>
+    <span class="sep">Ho Chi Minh City, Vietnam</span>
+  </div>
+</footer>
 
 </body>
 </html>
